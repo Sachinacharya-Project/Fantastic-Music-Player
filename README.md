@@ -16,6 +16,6 @@ b. [Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantast
 c. Fantastic Music Player.zip (Archive) is a zip file which can be extracted to use application directly (Without installing)
 d. Rest and the core of the application for developer (Edit accordingly)
 ## Installation
-    ````python
-    pip install -r requirements.txt # pip3 for unix
-    ````
+````python
+pip install -r requirements.txt # pip3 for unix
+````
