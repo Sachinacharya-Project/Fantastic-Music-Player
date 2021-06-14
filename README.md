@@ -11,10 +11,10 @@ PyQt5
 requirements.txt
     All the required modules
 ## Content Included
-    Icon (Directory): Contains all the icons used in the Graphical Interface
-    [Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/Fantastic Music Player.exe) (Executable) is the Installer of the application
-    Fantastic Music Player.zip (Archive) is a zip file which can be extracted to use application directly (Without installing)
-    Rest and the core of the application for developer (Edit accordingly)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Icon (Directory): Contains all the icons used in the Graphical Interface
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/Fantastic Music Player.exe) (Executable) is the Installer of the application
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fantastic Music Player.zip (Archive) is a zip file which can be extracted to use application directly (Without installing)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rest and the core of the application for developer (Edit accordingly)
 ## Installation
     ````python
     pip install -r requirements.txt # pip3 for unix
