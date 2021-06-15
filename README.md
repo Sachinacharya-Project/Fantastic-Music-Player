@@ -65,7 +65,7 @@ requirements.txt
 ## Content Included
 <ol type='1'>
 <li>Icon (Directory): Contains all the icons used in the Graphical Interface</li>
-<li>[Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) (Executable) is the Installer of the application</li>
+[Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) (Executable) is the Installer of the application
 <li>Fantastic Music Player.zip (Archive) is a zip file which can be extracted to use application directly (Without installing)</li>
 <li>Rest are the core of the application for developer (Edit accordingly)</li>
 <ol>
