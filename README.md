@@ -69,10 +69,46 @@ requirements.txt
 <ol type='a'>
     <li>
         Left Arrow
-        <li>
-            Used to Skip 5000ms (5 second) Frame back
-        </li>
     </li>
+    <ul type='circle'>
+        <li>Used to Go 5000 ms (5 Second) Frame Back</li>
+    </ul>
+        <li>
+        Right Arrow
+    </li>
+    <ul type='circle'>
+        <li>Used to Go 5000 ms (5 Second) Frame Forward</li>
+    </ul>
+        <li>
+        Up Arrow
+    </li>
+    <ul type='circle'>
+        <li>Increase volume by 5</li>
+    </ul>
+        <li>
+        Down Arrow
+    </li>
+    <ul type='circle'>
+        <li>Decrease volume by 5</li>
+    </ul>
+        <li>
+        S
+    </li>
+    <ul type='circle'>
+        <li>Stops currently playing media</li>
+    </ul>
+    <li>
+            M
+    </li>
+    <ul type='circle'>
+        <li>Mute and Unmute Current media</li>
+    </ul>
+    <li>
+            Ctrl+D
+    </li>
+    <ul type='circle'>
+        <li>Download Current media</li>
+    </ul>
 </ol>
 
 ## Content Included
