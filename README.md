@@ -19,11 +19,21 @@ requirements.txt
             <li>Used to Play or Pause the media.Play media if has been yet, else pause the media</li>
         </ul>
     <li>Volume Down Button</li>
-* Used to Decrease Media Volume by 3
-c. Volume Up Button
-* Used to Turn up the media volume by 3
-d. Stop Button
-* Stops the current media. Once stopped, on playing media, it will starts for beginning.
+        <ul>
+            <li>
+                * Used to Decrease Media Volume by 3
+            </li>
+        </ul>
+    <li>Volume Up Button</li>
+        <ul>
+            <li>
+                Used to Turn up the media volume by 3
+            </li>
+        </ul>
+    <li>Stop Button</li>
+    <ul>
+        <li>Stops the current media. Once stopped, on playing media, it will starts for beginning.</li>
+    </ul>
 e. Next/Previous Button
 * Change to Next/Previous media as it's labeled
 f. Mute Button
