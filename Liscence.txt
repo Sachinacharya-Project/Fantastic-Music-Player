@@ -1,0 +1,35 @@
+Welcome to
+                     ___====-_  _-====___
+               _--^^^#####//      \#####^^^--_
+            _-^##########// (    ) \##########^-_
+           -############//  |\^^/|  \############-
+         _/############//   (@::@)   \############\_
+         /#############((    \  /     ))#############\
+        -###############\    (oo)    //###############-
+       -#################\  / VV \  //#################-
+      -###################\/      \//###################-
+    _#/|##########/\######(   /\   )######/\##########|\#_
+    |/ |#/\#/\#/\/  \#/\##\  |  |  /##/\#/  \/\#/\#/\#| \|
+    `  |/  V  V  `   V  \#\| |  | |/#/  V    V V |
+       '   '  '      '   / | |  | | \   '      '  '   '
+                        (  | |  | |  )
+                       __\ | |  | | /__
+                      (vvv(VVV)(VVV)vvv)
+
+  --------------------------------------------------------------
+                Sachin Acharya: Fantastic Music Player
+This piece of software is free to use but only for personal usage
+Please do not use for COMERCIAL purpose
+Incase you wanna use this as a comercial purpose, 
+Do contact me and ask for the permission.
+
+Incase of hinderance of Copyright Law
+You may get yourself into the Legal obligations
+As they say
+Prevention is better than cure
+So mind the thought and do not take law in your house
+
+Contact Details can be found in software README.md file
+
+
+Have a great day and enjoy Fantastic Music Player.
