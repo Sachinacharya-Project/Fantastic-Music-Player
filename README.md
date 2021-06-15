@@ -21,7 +21,7 @@ requirements.txt
     <li>Volume Down Button</li>
         <ul>
             <li>
-                * Used to Decrease Media Volume by 3
+                Used to Decrease Media Volume by 3
             </li>
         </ul>
     <li>Volume Up Button</li>
@@ -34,12 +34,24 @@ requirements.txt
     <ul>
         <li>Stops the current media. Once stopped, on playing media, it will starts for beginning.</li>
     </ul>
-e. Next/Previous Button
-* Change to Next/Previous media as it's labeled
-f. Mute Button
-* Used to mute the volume of media
-g. Download Button
-* Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
+    <li>Next/Previous Button</li>
+    <ul>
+        <li>
+            Change to Next/Previous media as it's labeled
+        </li>
+    </ul>
+    <li>Mute Button</li>
+    <ul>
+        <li>
+            Used to mute the volume of media
+        </li>
+    </ul>
+    <li>Download Button<li>
+    <ul>
+        <li>
+            Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
+        </li>
+    </ul>
 h. Update Button
 * Used to add new Musics to Playlist
 i. Vertical Slider
