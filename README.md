@@ -57,7 +57,7 @@ requirements.txt
             <li>Used to add new Musics to Playlist</li>
         </ul>
     <li>Vertical Slider</li>
-        <ul list-style='circle'>
+        <ul type='circle'>
             <li>Used to adjust volume</li>
         </ul>
 </ol>
