@@ -71,7 +71,7 @@ requirements.txt
         Left Arrow
         <li>
             Used to Skip 5000ms (5 second) Frame back
-        <li>
+        </li>
     </li>
 </ol>
 
