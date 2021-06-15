@@ -4,6 +4,7 @@ from selenium import webdriver
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BACKGROUND = os.path.join(os.path.join(BASE_DIR, 'icons'), 'background.png')
+DRIVER = os.path.join(os.path.join(BASE_DIR, 'Driver'), 'chromedriver.exe')
 
 class Ui_MainWindow(object):
         def returnVideoURL(self, video_title):
@@ -190,7 +191,7 @@ class MediaCollector(QtCore.QThread):
                 self.messageEvent.emit('Scrapping {}'.format(outting))
                 options = webdriver.ChromeOptions()
                 options.add_argument('headless')
-                driver = webdriver.Chrome('C:/MyDevelopers/Drivers/chromedriver.exe', options=options)
+                driver = webdriver.Chrome(DRIVER, options=options)
                 driver.get(outting)
                 self.messageEvent.emit('Scrapping process 1/7')
                 driver.execute_script("window.scrollBy(0, 9999)")

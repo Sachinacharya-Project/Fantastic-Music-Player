@@ -1,10 +1,8 @@
-from re import S
+from logging import currentframe
 from PyQt5 import QtCore, QtGui, QtWidgets
-from requests.sessions import SessionRedirectMixin
 from vlc import MediaPlayer
-import json, pafy, os, requests, time
+import json, pafy, os, requests
 from update_gui import Ui_MainWindow as SecondScr
-from math import floor
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ICON_DIR = os.path.join(BASE_DIR, 'icons')
@@ -258,7 +256,7 @@ class Ui_MainWindow(object):
                 sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
                 MainWindow.setSizePolicy(sizePolicy)
                 MainWindow.setMinimumSize(QtCore.QSize(0, 0))
-                MainWindow.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+                MainWindow.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
                 icon = QtGui.QIcon()
                 icon.addPixmap(QtGui.QPixmap(BACKGROUND), QtGui.QIcon.Normal, QtGui.QIcon.Off)
                 MainWindow.setWindowIcon(icon)
@@ -291,7 +289,7 @@ class Ui_MainWindow(object):
                 font.setBold(False)
                 font.setWeight(50)
                 self.music_titles.setFont(font)
-                self.music_titles.setStyleSheet("color: rgb(82, 91, 255);padding: 10px;")
+                self.music_titles.setStyleSheet("color: rgb(82, 91, 255);padding: 10px;font-weight: bold;")
                 self.music_titles.setAlignment(QtCore.Qt.AlignCenter)
                 self.music_titles.setObjectName("music_titles")
                 self.playPause = QtWidgets.QPushButton(self.centralwidget)
@@ -447,8 +445,8 @@ class Ui_MainWindow(object):
                 self.volume.valueChanged.connect(lambda: self.volumeControl('slider'))
                 self.seek_bar = QtWidgets.QSlider(self.centralwidget)
                 self.seek_bar.setGeometry(QtCore.QRect(20, 240, 751, 22))
-                self.seek_bar.setMouseTracking(False)
-                self.seek_bar.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
+                self.seek_bar.setMouseTracking(True)
+                self.seek_bar.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
                 self.seek_bar.setStyleSheet("QSlider::groove:horizontal { \n"
         "    background-color: white;\n"
         "    border: 0px solid #424242;\n"
@@ -628,16 +626,16 @@ class Ui_MainWindow(object):
 
                 self.mediaLength = 0
                 self.seek_bar.setValue(self.mediaLength)
-
+                self.seek_bar.valueChanged.connect(self.valueIsChangedDetection)
                 # Area Shortcuts
                 self.play_pause_shortcuts = QtWidgets.QShortcut(QtGui.QKeySequence('Space'), MainWindow)
                 self.play_pause_shortcuts.activated.connect(self.playPauseHandle)
                 
                 self.next_shortcuts = QtWidgets.QShortcut(QtGui.QKeySequence('Left'), MainWindow)
-                self.next_shortcuts.activated.connect(self.playNext)
+                self.next_shortcuts.activated.connect(lambda: self.skipTime('next'))
                 
                 self.previous_shortcuts = QtWidgets.QShortcut(QtGui.QKeySequence('Right'), MainWindow)
-                self.previous_shortcuts.activated.connect(self.playPrevious)
+                self.previous_shortcuts.activated.connect(lambda: self.skipTime('prev'))
 
                 self.volumeUp_shortcuts = QtWidgets.QShortcut(QtGui.QKeySequence('Up'), MainWindow)
                 self.volumeUp_shortcuts.activated.connect(lambda: self.volumeControl('up'))
@@ -664,12 +662,47 @@ class Ui_MainWindow(object):
                 self.loopThread.videoEndedEvent.connect(self.changeNextVideo)
                 self.repeatThread = repeatThread(self.player)
                 self.closeEndThread = closeEndThread(self.player)
-
+                MainWindow.customContextMenuRequested.connect(self.contextMenuEvent)
                 QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        def skipTime(self, value):
+                current_video_time = self.player.get_time()
+                if value == 'prev':
+                        video_length = self.player.get_length()
+                        new_video_time = current_video_time + 5000
+                        if new_video_time > video_length:
+                                new_video_time = video_length - 1000
+                else:
+                        new_video_time = current_video_time - 5000
+                        if new_video_time < 0:
+                                new_video_time = 0
+                self.update_info('Playing at {}/{} MS'.format(new_video_time, video_length))
+                self.player.set_time(int(new_video_time))
+        def pauseMediaForAWhile(self):
+                self.player.pause()
+        def valueIsChangedDetection(self):
+                if not self.player.is_playing():
+                        current_time = self.seek_bar.value()
+                        self.player.set_time(int(current_time))
         def changeNextVideo(self, index):
                 if index == 1:
                         self.playNext()
-                # self.next_btn.click()
+        def contextMenuEvent(self, position):
+                contextMenu = QtWidgets.QMenu(MainWindow)
+                contextMenu.setStyleSheet("QMenu{\n"
+                "border-radius: 10px;\n"
+                "background-color: #333;\n"
+                "width: 250px;\n"
+                "color: white;\n"
+                "border: 0px solid white;\n"
+                "padding: 10px;\n"
+                "}\n"
+                "QMenu:pressed{\n"
+                "color: red;\n"
+                "}\n")
+                showPlaylist = contextMenu.addAction('Show Playlist')
+                action = contextMenu.exec_(self.tool_window.mapToGlobal(position))
+                if action == showPlaylist:
+                        print('Showing Playlist')
         def retranslateUi(self, MainWindow):
                 self._translate = QtCore.QCoreApplication.translate
                 MainWindow.setWindowTitle(self._translate("MainWindow", "Fantastic Music Player"))
