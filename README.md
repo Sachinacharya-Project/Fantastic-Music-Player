@@ -52,10 +52,14 @@ requirements.txt
             Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
         </li>
     </ul>
-h. Update Button
-* Used to add new Musics to Playlist
-i. Vertical Slider
-* Used to adjust volume
+    <li>Update Button</li>
+    <ul>
+        <li>Used to add new Musics to Playlist</li>
+    </ul>
+    <li>Vertical Slider</li>
+    <ul>
+        <li>Used to adjust volume</li>
+    </ul>
 </ol>
 ## Content Included
 1. Icon (Directory): Contains all the icons used in the Graphical Interface
