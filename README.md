@@ -16,7 +16,7 @@ requirements.txt
 <ol type='a'>
     <li>Play/Pause Button</li>
         <ul>
-            <li>* Used to Play or Pause the media.Play media if has been yet, else pause the media</li>
+            <li>Used to Play or Pause the media.Play media if has been yet, else pause the media</li>
         </ul>
     <li>Volume Down Button</li>
 * Used to Decrease Media Volume by 3
