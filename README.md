@@ -11,10 +11,14 @@ PyQt5
 requirements.txt
     All the required modules
 ## Controls
+<ol>
 1. On Screen Controls
-a. Play/Pause Button
-* Used to Play or Pause the media.Play media if has been yet, else pause the media
-b. Volume Down Button
+<ol type='a'>
+    <li>Play/Pause Button</li>
+        <ul>
+            <li>* Used to Play or Pause the media.Play media if has been yet, else pause the media</li>
+        </ul>
+    <li>Volume Down Button</li>
 * Used to Decrease Media Volume by 3
 c. Volume Up Button
 * Used to Turn up the media volume by 3
@@ -30,6 +34,7 @@ h. Update Button
 * Used to add new Musics to Playlist
 i. Vertical Slider
 * Used to adjust volume
+</ol>
 ## Content Included
 1. Icon (Directory): Contains all the icons used in the Graphical Interface
 2. [Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) (Executable) is the Installer of the application
