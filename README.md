@@ -10,6 +10,26 @@ PyQt5
     Graphics Library
 requirements.txt
     All the required modules
+## Controls
+1. On Screen Controls
+a. Play/Pause Button
+* Used to Play or Pause the media.Play media if has been yet, else pause the media
+b. Volume Down Button
+* Used to Decrease Media Volume by 3
+c. Volume Up Button
+* Used to Turn up the media volume by 3
+d. Stop Button
+* Stops the current media. Once stopped, on playing media, it will starts for beginning.
+e. Next/Previous Button
+* Change to Next/Previous media as it's labeled
+f. Mute Button
+* Used to mute the volume of media
+g. Download Button
+* Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
+h. Update Button
+* Used to add new Musics to Playlist
+i. Vertical Slider
+* Used to adjust volume
 ## Content Included
 1. Icon (Directory): Contains all the icons used in the Graphical Interface
 2. [Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) (Executable) is the Installer of the application
