@@ -63,10 +63,10 @@ requirements.txt
 </ol>
 
 ## Content Included
-1. Icon (Directory): Contains all the icons used in the Graphical Interface
-2. [Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) (Executable) is the Installer of the application
-3. Fantastic Music Player.zip (Archive) is a zip file which can be extracted to use application directly (Without installing)
-4. Rest and the core of the application for developer (Edit accordingly)
+01. Icon (Directory): Contains all the icons used in the Graphical Interface
+02. [Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) (Executable) is the Installer of the application
+03. Fantastic Music Player.zip (Archive) is a zip file which can be extracted to use application directly (Without installing)
+04. Rest and the core of the application for developer (Edit accordingly)
 ## Installation
 ````python
 pip install -r requirements.txt # pip3 for unix
