@@ -46,7 +46,7 @@ requirements.txt
             Used to mute the volume of media
         </li>
     </ul>
-    <li>Download Button<li>
+    <li>Download Button</li>
     <ul>
         <li>
             Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
