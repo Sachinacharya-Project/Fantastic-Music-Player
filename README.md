@@ -60,6 +60,19 @@ requirements.txt
         <ul type='circle'>
             <li>Used to adjust volume</li>
         </ul>
+    <li>Horizontal Slider</li>
+    <ul type='circle'>
+        <li>Used to show current progress of media and can also be used as a seekbar i.e jummping to certain position (Note: To Use seekbar to some position, media must be paused)</li>
+    </ul>
+</ol>
+2. OffScreen Controls
+<ol type='a'>
+    <li>
+        Left Arrow
+        <li>
+            Used to Skip 5000ms (5 second) Frame back
+        <li>
+    </li>
 </ol>
 
 ## Content Included
@@ -68,6 +81,7 @@ requirements.txt
 03. Fantastic Music Player.zip (Archive) is a zip file which can be extracted to use application directly (Without installing)
 04. Rest are the core of the application for developer (Edit accordingly)
 ## Installation
-````python
-pip install -r requirements.txt # pip3 for unix
-````
+1. [Download](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) Installer for Windows
+2. Once downloaded, check in default download folder and then double click the downloaded application.
+3. Follow up as prompted.
+4. Choose installation path and all carefully and now start using files by navigating to installation path and clicking Fantastic Music Player.exe file
