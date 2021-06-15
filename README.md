@@ -91,14 +91,14 @@ requirements.txt
     <ul type='circle'>
         <li>Decrease volume by 5</li>
     </ul>
-        <li>
-        S
+    <li>
+        Key S
     </li>
     <ul type='circle'>
         <li>Stops currently playing media</li>
     </ul>
     <li>
-            M
+            Key M
     </li>
     <ul type='circle'>
         <li>Mute and Unmute Current media</li>
