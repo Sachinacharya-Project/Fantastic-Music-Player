@@ -15,51 +15,51 @@ requirements.txt
 1. On Screen Controls
 <ol type='a'>
     <li>Play/Pause Button</li>
-        <ul>
+        <ul type='circle'>
             <li>Used to Play or Pause the media.Play media if has been yet, else pause the media</li>
         </ul>
     <li>Volume Down Button</li>
-        <ul>
+        <ul type='circle'>
             <li>
                 Used to Decrease Media Volume by 3
             </li>
         </ul>
     <li>Volume Up Button</li>
-        <ul>
+        <ul type='circle'>
             <li>
                 Used to Turn up the media volume by 3
             </li>
         </ul>
     <li>Stop Button</li>
-    <ul>
-        <li>Stops the current media. Once stopped, on playing media, it will starts for beginning.</li>
-    </ul>
+        <ul type='circle'>
+            <li>Stops the current media. Once stopped, on playing media, it will starts for beginning.</li>
+        </ul>
     <li>Next/Previous Button</li>
-    <ul>
-        <li>
-            Change to Next/Previous media as it's labeled
-        </li>
-    </ul>
+        <ul type='circle'>
+            <li>
+                Change to Next/Previous media as it's labeled
+            </li>
+        </ul>
     <li>Mute Button</li>
-    <ul>
-        <li>
-            Used to mute the volume of media
-        </li>
+        <ul type='circle'>
+            <li>
+                Used to mute the volume of media
+            </li>
     </ul>
     <li>Download Button</li>
-    <ul>
-        <li>
-            Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
-        </li>
-    </ul>
+        <ul type='circle'>
+            <li>
+                Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
+            </li>
+        </ul>
     <li>Update Button</li>
-    <ul>
-        <li>Used to add new Musics to Playlist</li>
-    </ul>
+        <ul type='circle'>
+            <li>Used to add new Musics to Playlist</li>
+        </ul>
     <li>Vertical Slider</li>
-    <ul>
-        <li>Used to adjust volume</li>
-    </ul>
+        <ul list-style='circle'>
+            <li>Used to adjust volume</li>
+        </ul>
 </ol>
 
 ## Content Included
