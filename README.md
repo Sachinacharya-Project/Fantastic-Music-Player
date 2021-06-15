@@ -61,6 +61,7 @@ requirements.txt
         <li>Used to adjust volume</li>
     </ul>
 </ol>
+
 ## Content Included
 1. Icon (Directory): Contains all the icons used in the Graphical Interface
 2. [Fantastic Music Player.exe](https://github.com/Sachinacharya-Project/Fantastic-Music-Player/blob/main/Fantastic%20Music%20Player.exe) (Executable) is the Installer of the application
