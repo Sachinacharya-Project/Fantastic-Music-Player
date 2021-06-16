@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantastic Music Player | User Manual</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .damn{
+            position: absolute;
+            color: rgba(255, 255, 255, 0.144);
+            font-size: 100px;
+            top: 45%;
+            left: 50%;
+            transform: rotate(-50deg) translateY(-100%) translateX(-15%);
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #010409;
+            padding: 10px 20px 10px 20px;
+            overflow: hidden;
+        }
+        .container{
+            height: 100%;
+            width: calc(100% - 20px);
+            overflow: hidden;
+            overflow-y: visible;
+            border-radius: 10px;
+            padding: 20px;
+            background: #161b22;
+            color: #f3f3f3;
+            border: 1px solid rgb(41, 41, 41);
+            max-width: 700px;
+        }
+        .container::-webkit-scrollbar{
+            width: 0px;
+        }
+        h1{
+            padding: 20px 0;
+            font-weight: normal;
+            font-size: 30px;
+            z-index: 2;
+        }
+        p{
+            font-family: sans-serif;
+            z-index: 2;
+            font-size: 14px;
+            width: 100%;
+            margin: 5px 0;
+        }
+        p.endtitle{
+            text-align: end;
+            padding: 0 30px;
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+            flex-direction: column;
+        }
+        span{
+            width: 160px;
+            font-style: italic;
+            z-index: 2;
+        }
+        .separator{
+            z-index: 2;
+            width: 100%;
+            height: 3px;
+            background: rgba(145, 140, 140, 0.377);
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        h3{
+            z-index: 2;
+            padding: 10px 0;
+            font-family: sans-serif;
+            font-size: 20px;
+            width: 100%;
+            border-bottom: 1px solid rgba(170, 170, 170, 0.493);
+        }
+        a{
+            color: rgb(0, 162, 255);
+            z-index: 2;
+        }
+        ol > ol{
+            padding: 10px 40px;
+            z-index: 2;
+        }
+        ol > ol > ul{
+            z-index: 2;
+            padding: 10px 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="damn">Fantastic Music Player</h1>
+        <h1 class="title">
+            Fantastic Music Player (User Manual)
+        </h1>
+        <p>
+            Graphical Music Player using Python
+        </p>
+        <div class="separator"></div>
+        <p>
+            Fantastic Music Player With the help of this application, you don't need to visit YouTube, everytime you want to listen your favourite song. You can create your playlist of your favourite songs and play them easily
+        </p>
+        <h3>
+            Dependencies
+        </h3>
+        <p>
+            <a href="https://www.python.org/">Python</a> used a backend and PyQt5 is one of the Python Packages used to create modern GUI which is used in our application.
+        </p>
+        <h3>Controls</h3>
+        <ol>
+        1. On Screen Controls
+        <ol type='a'>
+            <li>Play/Pause Button</li>
+                <ul type='circle'>
+                    <li>Used to Play or Pause the media.Play media if has been yet, else pause the media</li>
+                </ul>
+            <li>Volume Down Button</li>
+                <ul type='circle'>
+                    <li>
+                        Used to Decrease Media Volume by 3
+                    </li>
+                </ul>
+            <li>Volume Up Button</li>
+                <ul type='circle'>
+                    <li>
+                        Used to Turn up the media volume by 3
+                    </li>
+                </ul>
+            <li>Stop Button</li>
+                <ul type='circle'>
+                    <li>Stops the current media. Once stopped, on playing media, it will starts for beginning.</li>
+                </ul>
+            <li>Next/Previous Button</li>
+                <ul type='circle'>
+                    <li>
+                        Change to Next/Previous media as it's labeled
+                    </li>
+                </ul>
+            <li>Mute Button</li>
+                <ul type='circle'>
+                    <li>
+                        Used to mute the volume of media
+                    </li>
+            </ul>
+            <li>Download Button</li>
+                <ul type='circle'>
+                    <li>
+                        Used to download currently loaded/Playing media to your local directory (Downloads Folder within this application installation folder)
+                    </li>
+                </ul>
+            <li>Update Button</li>
+                <ul type='circle'>
+                    <li>Used to add new Musics to Playlist</li>
+                </ul>
+            <li>Vertical Slider</li>
+                <ul type='circle'>
+                    <li>Used to adjust volume</li>
+                </ul>
+            <li>Horizontal Slider</li>
+            <ul type='circle'>
+                <li>Used to show current progress of media and can also be used as a seekbar i.e jummping to certain position (Note: To Use seekbar to some position, media must be paused)</li>
+            </ul>
+        </ol>
+        2. OffScreen Controls
+        <ol type='a'>
+            <li>
+                Left Arrow
+            </li>
+            <ul type='circle'>
+                <li>Used to Go 5000 ms (5 Second) Frame Back</li>
+            </ul>
+                <li>
+                Right Arrow
+            </li>
+            <ul type='circle'>
+                <li>Used to Go 5000 ms (5 Second) Frame Forward</li>
+            </ul>
+                <li>
+                Up Arrow
+            </li>
+            <ul type='circle'>
+                <li>Increase volume by 5</li>
+            </ul>
+                <li>
+                Down Arrow
+            </li>
+            <ul type='circle'>
+                <li>Decrease volume by 5</li>
+            </ul>
+            <li>
+                Key S
+            </li>
+            <ul type='circle'>
+                <li>Stops currently playing media</li>
+            </ul>
+            <li>
+                    Key M
+            </li>
+            <ul type='circle'>
+                <li>Mute and Unmute Current media</li>
+            </ul>
+            <li>
+                    Ctrl+D
+            </li>
+            <ul type='circle'>
+                <li>Download Current media</li>
+            </ul>
+        </ol>
+    <h3>
+        Error Handelling
+    </h3>
+    <p>
+        <br>
+        (Must read before installations)
+        Sometime you might get some error after installation like below
+        <br><br>
+        <img src="https://github.com/Sachinacharya-Project/Fantastic-Music-Player/raw/main/Error%20Handles/step-1.png">
+        <br><br>
+        If you got error something like this you need to provide administrator permission to the the file or you can install the program somewhere else that doesn't require administrator previlege like in another drive or something or to Desktop, you get the idea!
+        <br><br>
+        If you want don't want to change the default directory or had already installed it and facing the problem, here is the solution
+        <br><br>
+        Right-Click on the Desktop icon of Fantastic Music Player
+        <br><br>
+        <img src="https://github.com/Sachinacharya-Project/Fantastic-Music-Player/raw/main/Error%20Handles/step-0.png">
+        <br><br>
+        You will see something like this
+        <br><br>
+        <img src='https://github.com/Sachinacharya-Project/Fantastic-Music-Player/raw/main/Error%20Handles/step-2.png'>
+        <br><br>
+        Now click on properties and something like this prompt up in the screen
+        <br><br>
+        <img src="https://github.com/Sachinacharya-Project/Fantastic-Music-Player/raw/main/Error%20Handles/step-3.png">
+        <br><br>
+        Click on Advance option under shortcut heading
+        And you will get something like this
+        <br><br>
+        <img src="https://github.com/Sachinacharya-Project/Fantastic-Music-Player/raw/main/Error%20Handles/step-4.png">
+        <br><br>
+        Check the "Run as Administrator" option and click OK
+        and again click Apply and OK
+        <br><br>
+        <img src="https://github.com/Sachinacharya-Project/Fantastic-Music-Player/raw/main/Error%20Handles/step-5.png">
+        <br><br>
+        Now run the program with no error.
+    </p>
+    <br><br><br>
+    <p class="endtitle">
+        <span>To Report a Bug</span>
+        <span>Sachin Acharya</span>
+        <a href="https://www.sachinacharya.cf/" target="_blank">https://www.sachinacharya.cf/</a>
+        <span>acharyaraj71@gmail.com</span>
+    </p>
+    </div>
+</body>
+</html>
