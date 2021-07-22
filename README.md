@@ -5,11 +5,11 @@ Fantastic Music Player
     With the help of this application, you don't need to visit YouTube, everytime you want to listen your favourite song. You can create your playlist of your favourite songs and play them easily
 ## Dependencies
 1. [Python](https://www.python.org/)
-    Used as a backend
+    * Used as a backend
 2. PyQt5
-    Graphics Library
+    * Graphics Library
 3. requirements.txt
-    All the required modules
+    * All the required modules
 ## Controls
 <ol>
 1. On Screen Controls
