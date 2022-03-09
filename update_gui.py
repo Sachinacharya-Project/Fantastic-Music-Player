@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import json, os, pafy, requests, time, math
-from selenium import webdriver
+from youtubesearchpython import Playlist
+import json, os, pafy, requests, math
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BACKGROUND = os.path.join(os.path.join(BASE_DIR, 'icons'), 'background.png')
@@ -151,8 +151,8 @@ class Ui_MainWindow(object):
                                 self.downloadingThread.progressEvent.connect(self.progressing)
                                 self.downloadingThread.completeEvent.connect(self.completed)
                                 self.downloadingThread.messageEvent.connect(self.message)
-                                global outting
-                                outting = query
+                                global videoListUrl
+                                videoListUrl = query
                                 link = 'list'
                         else:
                                 url = self.returnVideoURL(query)
@@ -188,56 +188,24 @@ class MediaCollector(QtCore.QThread):
         progressEvent = QtCore.pyqtSignal(list)
         messageEvent = QtCore.pyqtSignal(str)
         def run(self):
-                self.messageEvent.emit('Scrapping {}'.format(outting))
-                options = webdriver.ChromeOptions()
-                options.add_argument('headless')
-                driver = webdriver.Chrome(DRIVER, options=options)
-                driver.get(outting)
-                self.messageEvent.emit('Scrapping process 1/7')
-                driver.execute_script("window.scrollBy(0, 9999)")
-                time.sleep(1)
-                self.messageEvent.emit('Scrapping process 2/7')
-                driver.execute_script("window.scrollBy(0, 9999)")
-                time.sleep(1)
-                self.messageEvent.emit('Scrapping process 3/7')
-                driver.execute_script("window.scrollBy(0, 9999)")
-                time.sleep(1)
-                self.messageEvent.emit('Scrapping process 4/7')
-                driver.execute_script("window.scrollBy(0, 9999)")
-                time.sleep(1)
-                self.messageEvent.emit('Scrapping process 5/7')
-                driver.execute_script("window.scrollBy(0, 9999)")
-                time.sleep(1)
-                self.messageEvent.emit('Scrapping process 6/7')
-                driver.execute_script("window.scrollBy(0, 9999)")
-                time.sleep(1)
-                self.messageEvent.emit('Scrapping process 7/7')
-                driver.execute_script("window.scrollBy(0, 9999)")
-                self.messageEvent.emit('Done!\nCollecting Datas')
-                all_urls = driver.find_elements_by_css_selector('a.inline-block')
-                count = 0
-                urls_file_path = os.path.join(BASE_DIR, 'playlist.url.json')
-                urls_file = open(urls_file_path, 'r+')
-                url_list = list(json.load(urls_file)['urls'])
-                failed_count = 0
-                total = len(all_urls)
-                for url in all_urls:
-                        href = url.get_attribute('href')
-                        if str(href).startswith('https://www.youtube.com/watch'):
-                                # print(href)
-                                try:
-                                        video_title = pafy.new(href).title
-                                        url_list.append(href)
-                                        self.progressEvent.emit([count, len(all_urls), video_title])
-                                        count += 1
-                                except:
-                                        failed_count += 1
+                self.messageEvent.emit('Collecting Playable URLS')                
+                with open(os.path.join(BASE_DIR, 'playlist.url.json'), 'r+') as jfile:
+                        previousList = list(json.load(jfile))
+                        if len(previousList) > 0:
+                                previousList = previousList['urls']
                         else:
-                                total -= 1
-                data = {
-                        "urls": list(set(url_list))
-                }
-                urls_file.seek(0)
-                urls_file.truncate()
-                json.dump(data, urls_file, indent=4)
-                self.completeEvent.emit([total, count, failed_count])
+                                previousList = []
+                        playlist = Playlist(videoListUrl)
+                        while playlist.hasMoreVideos:
+                                playlist.getNextVideos()
+                        jfile.seek(0)
+                        jfile.truncate()
+                        finalList = [videos['link'] for videos in playlist.videos]
+                        newList = previousList + finalList
+                        self.progressEvent.emit([len(finalList), len(finalList), playlist.info['info']['title']])
+                        data = {
+                                "urls": list(newList)
+                        }
+                        json.dump(data, jfile, indent=4)
+                        
+                        self.completeEvent.emit([int(playlist.info['info']['videoCount']), len(playlist.videos), int(playlist.info['info']['videoCount']) - int(len(playlist.videos))])

@@ -1,8 +1,9 @@
-from logging import currentframe
 from PyQt5 import QtCore, QtGui, QtWidgets
 from vlc import MediaPlayer
 import json, pafy, os, requests
 from update_gui import Ui_MainWindow as SecondScr
+
+# os.add_dll_directory("C:\\Program Files (x86)\\VideoLAN\\VLC")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ICON_DIR = os.path.join(BASE_DIR, 'icons')
@@ -38,15 +39,20 @@ class Ui_MainWindow(object):
                 self.collected_volume = 100
                 if self.collect_urls():
                         self.current_video_index = current_video_index
-                        self.current_url = self.urllist[self.current_video_index]
-                        self.metadata = pafy.new(self.current_url)
-                        self.current_playable_url = self.metadata.getbestaudio().url
-                        self.video_title = self.metadata.title
-                        self.music_titles.setText(self._translate("MainWindow", "Selected Media {}".format(self.video_title)))
-                        self.player = MediaPlayer(self.current_playable_url)
-                        self.update_info("Please do not use loop, repeat and close on end features")
+                        if len(self.urllist) > 0:
+                                self.current_url = self.urllist[self.current_video_index]
+                                self.metadata = pafy.new(self.current_url)
+                                self.current_playable_url = self.metadata.getbestaudio().url
+                                self.video_title = self.metadata.title
+                                self.music_titles.setText(self._translate("MainWindow", "Selected Media {}".format(self.video_title)))
+                                self.player = MediaPlayer(self.current_playable_url)
+                                self.update_info("Please do not use loop, repeat and close on end features")
+                        else:
+                                self.shouldReload = True
+                                self.player = False
                 else:
                         self.shouldReload = True
+                        self.player = False
         def uncheckElse(self, state):
                 if state == QtCore.Qt.Checked:
                         if self.tool_window.sender() == self.loop:
@@ -239,13 +245,17 @@ class Ui_MainWindow(object):
         def collect_urls(self):
                 self.jsonDir = os.path.join(BASE_DIR, 'playlist.url.json')
                 self.urllist_file = open(self.jsonDir, 'r+')
-                self.urllist = json.load(self.urllist_file)['urls']
-                if len(self.urllist) == 0:
-                        self.music_titles.setText(self._translate("MainWindow", "No Media Url is found in the playlist"))
-                        self.update_info('Please Populate by clicking update')
-                        return False
+                self.jurllist = json.load(self.urllist_file)
+                if len(self.jurllist) > 0:
+                        self.urllist = self.jurllist['urls']
+                        if len(self.urllist) == 0:
+                                self.music_titles.setText(self._translate("MainWindow", "No Media Url is found in the playlist"))
+                                self.update_info('Please Populate by clicking update')
+                                return False
+                        else:
+                                return True
                 else:
-                        return True
+                        return False
         def setupUi(self, MainWindow):
                 self.lastThreadName = ''
                 MainWindow.setObjectName("MainWindow")
@@ -707,7 +717,7 @@ class Ui_MainWindow(object):
                 self._translate = QtCore.QCoreApplication.translate
                 MainWindow.setWindowTitle(self._translate("MainWindow", "Fantastic Music Player"))
                 self.window_title.setText(self._translate("MainWindow", "Fantastic Music Player"))
-                self.music_titles.setText(self._translate("MainWindow", "1. Falling by harry styles"))
+                self.music_titles.setText(self._translate("MainWindow", "Media Files has been loaded and ready to be played!!!"))
                 self.info.setText(self._translate("MainWindow", "Looping"))
                 self.loop.setText(self._translate("MainWindow", "Loop"))
                 self.closeEnd.setText(self._translate("MainWindow", "Close on finished"))
