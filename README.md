@@ -8,7 +8,9 @@ Fantastic Music Player
     * Used as a backend
 2. PyQt5
     * Graphics Library
-3. requirements.txt
+3. VLC Media Player
+    * As this program uses VLC library to play musics/videos most of the time we get error due to absence of libvlc.dll file which comes with VLC Media Player. (Note to debugger/developer: VLC MediaPlayer must be same as the Python installed in your computer)
+4. requirements.txt
     * All the required modules
 ## Controls
 <ol>

@@ -244,18 +244,18 @@ class Ui_MainWindow(object):
         "")
         def collect_urls(self):
                 self.jsonDir = os.path.join(BASE_DIR, 'playlist.url.json')
-                self.urllist_file = open(self.jsonDir, 'r+')
-                self.jurllist = json.load(self.urllist_file)
-                if len(self.jurllist) > 0:
-                        self.urllist = self.jurllist['urls']
-                        if len(self.urllist) == 0:
-                                self.music_titles.setText(self._translate("MainWindow", "No Media Url is found in the playlist"))
-                                self.update_info('Please Populate by clicking update')
-                                return False
+                with open(self.jsonDir, 'r+') as self.urllist_file:
+                        self.jurllist = json.load(self.urllist_file)
+                        if len(self.jurllist) > 0:
+                                self.urllist = self.jurllist['urls']
+                                if len(self.urllist) == 0:
+                                        self.music_titles.setText(self._translate("MainWindow", "No Media Url is found in the playlist"))
+                                        self.update_info('Please Populate by clicking update')
+                                        return False
+                                else:
+                                        return True
                         else:
-                                return True
-                else:
-                        return False
+                                return False
         def setupUi(self, MainWindow):
                 self.lastThreadName = ''
                 MainWindow.setObjectName("MainWindow")

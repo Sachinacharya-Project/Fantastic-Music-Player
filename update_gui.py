@@ -158,20 +158,20 @@ class Ui_MainWindow(object):
                                 url = self.returnVideoURL(query)
                         if link == 'none':
                                 filepath = os.path.join(BASE_DIR, 'playlist.url.json')
-                                file = open(filepath, 'r+')
-                                urllist = json.load(file)['urls']
-                                video_title = pafy.new(url).getbestaudio().title
-                                urllist.append(url)
-                                newUrl = list(set(urllist))
-                                file.seek(0)
-                                file.truncate()
-                                data = {
-                                        "urls": newUrl
-                                }
-                                json.dump(data, file, indent=4)
-                                self.progressBar.setValue(100)
-                                self.update_info("Media {} has been added to Playlist".format(video_title))
-                                self.pushButton.setEnabled(True)
+                                with open(filepath, 'r+') as file:
+                                        urllist = json.load(file)['urls']
+                                        video_title = pafy.new(url).getbestaudio().title
+                                        urllist.append(url)
+                                        newUrl = list(set(urllist))
+                                        file.seek(0)
+                                        file.truncate()
+                                        data = {
+                                                "urls": newUrl
+                                        }
+                                        json.dump(data, file, indent=4)
+                                        self.progressBar.setValue(100)
+                                        self.update_info("Media {} has been added to Playlist".format(video_title))
+                                        self.pushButton.setEnabled(True)
         def message(self, text):
                 self.update_info(text)
         def update_info(self, text):
@@ -190,9 +190,9 @@ class MediaCollector(QtCore.QThread):
         def run(self):
                 self.messageEvent.emit('Collecting Playable URLS')                
                 with open(os.path.join(BASE_DIR, 'playlist.url.json'), 'r+') as jfile:
-                        previousList = list(json.load(jfile))
-                        if len(previousList) > 0:
-                                previousList = previousList['urls']
+                        previousListFile = json.load(jfile)
+                        if len(previousListFile) > 0:
+                                previousList = list(previousListFile['urls'])
                         else:
                                 previousList = []
                         playlist = Playlist(videoListUrl)
